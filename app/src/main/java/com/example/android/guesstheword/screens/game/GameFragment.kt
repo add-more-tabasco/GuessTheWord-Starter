@@ -59,36 +59,12 @@ class GameFragment : Fragment() {
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
 
-//        binding.correctButton.setOnClickListener { onCorrect() }
-//        binding.skipButton.setOnClickListener { onSkip() }
-//        binding.endGameButton.setOnClickListener { onEndGame() }
-
-//        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
-//            binding.scoreText.text = newScore.toString()
-//        })
-//        viewModel.word.observe(viewLifecycleOwner, Observer { nextWord ->
-//            binding.wordText.text = nextWord
-//        })
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer<Boolean> { hasFinished ->
             if (hasFinished) gameFinished()
         })
 
         return binding.root
-
     }
-
-    /** Methods for buttons presses **/
-
-//    private fun onSkip() {
-//        viewModel.onSkip()
-//    }
-//    private fun onCorrect() {
-//        viewModel.onCorrect()
-//    }
-//
-//    private fun onEndGame() {
-//        gameFinished()
-//    }
 
     /**
      * Called when the game is finished

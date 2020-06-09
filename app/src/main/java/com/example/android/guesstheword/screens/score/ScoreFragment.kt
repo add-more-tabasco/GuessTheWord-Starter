@@ -60,16 +60,6 @@ class ScoreFragment : Fragment() {
 
         binding.lifecycleOwner = viewLifecycleOwner
 
-        //version before using binding listeners in the view:
-//        binding.playAgainButton.setOnClickListener {  viewModel.onPlayAgain()  }
-
-//        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
-//            binding.scoreText.text = newScore.toString()
-//        })
-
-        //version without observer:
-        //binding.scoreText.text = viewModel.score.toString()
-
         // Navigates back to game when button is pressed
         viewModel.eventPlayAgain.observe(viewLifecycleOwner, Observer { playAgain ->
             if (playAgain) {
@@ -77,8 +67,6 @@ class ScoreFragment : Fragment() {
                 viewModel.onPlayAgainComplete()
             }
         })
-
-
 
         return binding.root
     }
